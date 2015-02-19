@@ -1,4 +1,4 @@
-# animated-wiki
+# animated-share
 this will be a project based on my exp as part of an IT group
 
 I am trying to create a wiki program that facilitates sharing information between different groups in an IT group.
