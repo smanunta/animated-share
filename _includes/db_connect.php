@@ -7,7 +7,7 @@ $handler->setattribut(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   die();
 }
 
-/*EXAMPLE PDO QUERY*/
+/*EXAMPLE PDO QUERY
 $query= $handler->query('SELECT * FROM x');
 while($row = $query->fetch())
 {
@@ -23,15 +23,25 @@ while($row = $query->fetch(PDO::FETCH_OBJ))
 {
   echo $row->COLUMM_NAME, '<br>';
 }
-ex2
-class nameofclass{
-  public $x, $y, $z;
-  
-}
-
-$query= $handler->query('SELECT * FROM x');
-
-while($row = $query->fetch(PDO::FETCH_OBJ))
+EX2  --in this example:
+1. conn to sql server 
+2. create class used for data 
+3.setting the fetch() mode to FETCH_CLASS and give it the class to use
+4.running the while loop and echoed data.
+class nameofclass
 {
-  echo $row->COLUMM_NAME, '<br>';
+  public $x, $y, $z, $entry;
+  
+  public function __construct()
+  {
+    $this->entry = "{$this->x} and {$this->x} and {$this->x}";
+  }
 }
+$query= $handler->query('SELECT * FROM x');
+$query->setFetchMode(PDO::FETCH_CLASS, 'nameofclass')   //same name as line 27
+while($row = $query->fetch())
+{
+  echo $row->entry, '<br>';
+}
+*/
+?>
