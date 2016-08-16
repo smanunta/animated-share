@@ -1,6 +1,23 @@
-# animated-share
-this will be a project based on my exp as part of an IT group
+#Starting with the “animated-share” app 
 
-I am trying to create a wiki program that facilitates sharing information between different groups in an IT group.
 
-EX. Plubice proceces from a server team so everyone is updated on it
+Create Database
+Use the start.sql file in the root of the download folder to create your database, name it whatever you want
+
+NOTE: before running the SQL change the field appName in the “options” table to whatever you named your root folder
+
+Set important dependencies
+Open the file named init.php located: /app/init.php
+Set the following fields:
+
+'host' => 'LINK TO YOUR SQL DB'
+'username' => 'USERNAME YOU SET FOR THE DB',
+'password' => PASSWORD YOU SET FOR THE DB',
+'db' => 'NAME OF THE DB YOU CREATED'
+Open .htaccess  file located in : /public/ and add your root dir name
+
+in the app/init.php file set your own session save location or just deleted
+
+Once the steps above are complete the app will be running with the default themes and your DB.
+
+Login included is username: root , password: password
