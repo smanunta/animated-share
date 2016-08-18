@@ -45,7 +45,7 @@ var wgtFuncs = {
 
 
   wgtRunModelNView: function(wgtName) {
-    xmlHttp.open('GET', './CrtlWidget/wgtRunModelNView/' + wgtName + '/', false);
+    xmlHttp.open('GET', '../CrtlWidget/wgtRunModelNView/' + wgtName + '/', false);
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4) {
         if (xmlHttp.status == 200) {
@@ -128,7 +128,7 @@ var wgtFuncs = {
 
   getJsonForSingleWgt: function(wgtName) {
     //ajax function to get the JSON
-    xmlHttp.open('GET', './CrtlWidget/getJsonForSingleWgt/' + wgtName + '/', false);
+    xmlHttp.open('GET', '../CrtlWidget/getJsonForSingleWgt/' + wgtName + '/', false);
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4) {
         if (xmlHttp.status == 200) {
@@ -159,7 +159,7 @@ function wgtCreateWidgetFiles() //uses the wgt name that is passed by the open n
 
 
 
-    xmlHttp.open('GET', './CrtlWidget/wgtCreateWidgetFiles/' + newWgtName + '/' + newWgtBtns + '/' + classesEncap + '/', false);
+    xmlHttp.open('GET', '../CrtlWidget/wgtCreateWidgetFiles/' + newWgtName + '/' + newWgtBtns + '/' + classesEncap + '/', false);
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4) {
         if (xmlHttp.status == 200) {
@@ -201,7 +201,7 @@ function wgtPosts() {
 
     $.ajax({
            type: "POST",
-           url: './CrtlWidget/wgtCreatePosts/',
+           url: '../CrtlWidget/wgtCreatePosts/',
            data: formData, // serializes the form's elements.
            success: function(data)
            {
@@ -264,7 +264,7 @@ function wgtAppOptions()
 
     $.ajax({
       type: "POST",
-      url: "./CrtlWidget/wgtUpdateAppOptions/",
+      url: "../CrtlWidget/wgtUpdateAppOptions/",
       data: formData, // serializes the form's elements.
       success: function(data) {
         //alert(data); // show response from the php script.

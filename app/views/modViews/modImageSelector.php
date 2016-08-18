@@ -1,4 +1,4 @@
-<?php 
+<?php
   $imgData = $data['moddata'];
 ?>
 
@@ -17,7 +17,7 @@
               // this is constructed in the contructor for the class for this wgt
               foreach($imgData->images as $image)
               {
-                echo '<img src="./'.$image.'" class="ImageChoice" width="100" height="100" data-imgToUse="'. $image. '"/><br />';
+                echo '<img src="../'.$image.'" class="ImageChoice" width="100" height="100" data-imgToUse="'. $image. '"/><br />';
               }
             ?>
             <form role="form" method="post" enctype="multipart/form-data" id="newPostEntryForm">

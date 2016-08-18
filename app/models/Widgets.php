@@ -47,7 +47,7 @@
      {
        return json_encode($data->first());
      }else
-     {return json_encode("fuck this shit");}
+     {return json_encode("not working properly");}
 
    }
    public function closeWgt()  //this function will get rid of the wgt from the sql

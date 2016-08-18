@@ -1,4 +1,4 @@
-<?php 
+<?php
 class wgtPosts
 {
   /***************************************************************************************
@@ -12,33 +12,36 @@ class wgtPosts
 *   *
 *
 ****************************************************************************************/
-  
+
   private $_db;
-  
-  
+
+
   public function __construct()
   {
-     
+
   }
-   
-  
+
+
   public function createPostEntry($newPostTitle, $newPostContent, $newImgForPost, $newPostType)
-  {   
-    
+  {
+
     $rightNow = date("Y-m-d h:i:sa");
-    
+
     $this->_db = DB::getInstance();
+
     $table= "posts";
     if($this->_db->insert($table , array("post_title" => $newPostTitle ,  "post_content" => $newPostContent, "post_date" => $rightNow, "post_image" => $newImgForPost, "post_excerpt" => $newPostContent, "post_type" => $newPostType)))
     {
       echo "succesfully Submited Post";
     }else
     {
+      var_dump($this->_db);
+      var_dump(array("post_title" => $newPostTitle ,  "post_content" => $newPostContent, "post_date" => $rightNow, "post_image" => $newImgForPost, "post_excerpt" => $newPostContent, "post_type" => $newPostType));
       echo "failed";
     }
-    
+
   }
- 
-  
-} 
+
+
+}
 ?>

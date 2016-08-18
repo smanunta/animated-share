@@ -1,32 +1,36 @@
 var xmlHttp = new XMLHttpRequest();
 
-/*  
+/*
  ***********************************************************************************************
  *
- *this object will be used to manipulate MODALS for the page 
- *MODALs used will be using BOOTSTRAP 
+ *this object will be used to manipulate MODALS for the page
+ *MODALs used will be using BOOTSTRAP
  *
- *steps: var is assigned the obj modelfuncs to instantiate , run the mod open which will use a mod 
- *name that will be pulled from an html obj, 
+ *steps: var is assigned the obj modelfuncs to instantiate , run the mod open which will use a mod
+ *name that will be pulled from an html obj,
  ***********************************************************************************************
  */
 
 
 var modalFuncs = {
-  
+
    modOpenNew: function(modName) { //wgtName comes from the menuy HTML
+     /* *****************************
+     check to see the name of the modal called
+     *******************************/
+     //console.log(modName);
     modData = JSON.parse(this.getJsonForSingleMod(modName));
     output = this.modRunModelNView(modData.name);
 
     $('#modals_content').append(output);
-     
+
     window[modName](); //if the modal requires javascript this call will load it as long as the name is the same as modName
   },
-  
+
   getJsonForSingleMod: function(modName) {
-    
+
     //ajax function to get the JSON
-    xmlHttp.open('GET', './CrtlModals/getJsonForSingleMod/' + modName + '/', false);
+    xmlHttp.open('GET', '../CrtlModals/getJsonForSingleMod/' + modName + '/', false);
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4) {
         if (xmlHttp.status == 200) {
@@ -38,9 +42,9 @@ var modalFuncs = {
     xmlHttp.send(null);
     return Response;
   },
-  
+
   modRunModelNView: function(modName) {
-    xmlHttp.open('GET', './CrtlModals/modRunModelNView/' + modName + '/', false);
+    xmlHttp.open('GET', '../CrtlModals/modRunModelNView/' + modName + '/', false);
     xmlHttp.onreadystatechange = function() {
       if (xmlHttp.readyState == 4) {
         if (xmlHttp.status == 200) {
@@ -52,29 +56,29 @@ var modalFuncs = {
     xmlHttp.send(null);
     return Response;
   }
-  
+
 }
 
  function modImageSelector() {
     var imgLocation = "bob";
-    
+
     $(".ImageChoice").click(function(){ //submit image choice will be the button in the modal
-     
+
       //get the img location from the obj
       imgLocation = $(this).attr("data-imgtouse");
-      
+
     });
-    
+
     $("#submitImageChoice").click(function(){ //submit image choice will be the button in the modal
-     
+
       //get the img location from the obj
       modalReturn =  imgLocation;
       $("#imgSelected").val(modalReturn);
       $('#myImageSelectorModal').modal('hide');
     });
-    
-   
-    
+
+
+
     $("#submitNewImage").click(function(event) {
       dataToSend = new FormData();
       dataToSend.append("newImageToSubmit", $('#newImageToSubmit')[0].files[0]);
@@ -93,12 +97,10 @@ var modalFuncs = {
           }
       });
     });
-    
-    
+
+
   }
-  
+
 
 //postImg = modalFuncs.modOpenNew("modImageSelector").modImageSelector();
 //alert(postImg);
-
-
